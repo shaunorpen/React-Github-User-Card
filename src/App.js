@@ -1,10 +1,23 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userData: {},
+    };
   }
+
+  componentDidMount() {
+    axios.get('https://api.github.com/users/shaunorpen')
+      .then(res => {
+        this.setState({
+          userData: res.data,
+        })
+      })
+  }
+
   render() {
     return (
       <div className="App">
