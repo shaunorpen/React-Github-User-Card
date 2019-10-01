@@ -32,7 +32,8 @@ export default class UserCard extends React.Component {
                     Object.keys(this.props.userData).map(key => {
                         return (
                             <div>
-                                <span className='key'>{key}: </span><span className='value'>{this.props.userData[key]}</span>
+                                <span className='key'>{key}: </span>
+                                <span className='value'>{this.props.userData[key]}</span>
                             </div>
                         );
                     })

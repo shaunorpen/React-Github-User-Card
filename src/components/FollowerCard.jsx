@@ -34,7 +34,8 @@ export default class FollowerCard extends React.Component {
                                 </div>
                                 {
                                     Object.keys(follower).map(key => {
-                                        return <div><span className='key'>{key}: </span><span className='value'>{follower[key]}</span></div>
+                                        return <div><span className='key'>{key}: </span>
+                                        <span className='value'>{follower[key]}</span></div>
                                     })
                                 }
                             </FollowerCard>
