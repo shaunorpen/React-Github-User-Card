@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import Search from './components/Search';
 import UserCard from './components/UserCard';
 import FollowerCard from './components/FollowerCard';
 
@@ -76,6 +77,7 @@ export default class App extends React.Component {
 
     return (
       <App>
+        <Search currentUser={this.state.user} setUser={this.setUser} />
         <UserCard userData={this.state.userData} />
         <FollowerCard followerList={this.state.followerList} setUser={this.setUser} />
       </App>

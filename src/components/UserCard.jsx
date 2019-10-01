@@ -23,22 +23,22 @@ export default class UserCard extends React.Component {
 
         return (
             <>
-            <h2>User Details ({this.props.userData.name})</h2>
-            <UserCard>
-                <div className='image-container'>
-                    <img src={this.props.userData.avatar_url} alt={this.props.userData.name} />
-                </div>
-                {
-                    Object.keys(this.props.userData).filter(key => !key.includes('url')).map(key => {
-                        return (
-                            <div>
-                                <span className='key'>{key}: </span>
-                                <span className='value'>{this.props.userData[key]}</span>
-                            </div>
-                        );
-                    })
-                }
-            </UserCard>
+                <h2>User Details ({this.props.userData.name})</h2>
+                <UserCard>
+                    <div className='image-container'>
+                        <img src={this.props.userData.avatar_url} alt={this.props.userData.name} />
+                    </div>
+                    {
+                        Object.keys(this.props.userData).filter(key => !key.includes('url')).map(key => {
+                            return (
+                                <div>
+                                    <span className='key'>{key}: </span>
+                                    <span className='value'>{this.props.userData[key]}</span>
+                                </div>
+                            );
+                        })
+                    }
+                </UserCard>
             </>
         );
     }
