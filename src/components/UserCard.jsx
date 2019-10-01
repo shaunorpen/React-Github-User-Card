@@ -1,4 +1,5 @@
 import React from 'react';
+import FollowerCard from './FollowerCard';
 
 export default class UserCard extends React.Component {
     render() {
