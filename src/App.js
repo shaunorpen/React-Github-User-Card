@@ -11,14 +11,15 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: 'shaunorpen',
       userData: {},
       followerList: [],
     };
   }
 
   componentDidMount() {
-    const userData = axios.get('https://api.github.com/users/shaunorpen');
-    const followerList = axios.get('https://api.github.com/users/shaunorpen/followers');
+    const userData = axios.get(`https://api.github.com/users/${this.state.user}`);
+    const followerList = axios.get(`https://api.github.com/users/${this.state.user}/followers`);
     Promise.all([userData, followerList])
       .then(res => {
         this.setState({
