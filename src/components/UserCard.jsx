@@ -29,7 +29,7 @@ export default class UserCard extends React.Component {
                     <img src={this.props.userData.avatar_url} alt={this.props.userData.name} />
                 </div>
                 {
-                    Object.keys(this.props.userData).map(key => {
+                    Object.keys(this.props.userData).filter(key => !key.includes('url')).map(key => {
                         return (
                             <div>
                                 <span className='key'>{key}: </span>

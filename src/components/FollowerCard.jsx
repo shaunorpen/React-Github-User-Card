@@ -8,6 +8,7 @@ export default class FollowerCard extends React.Component {
             padding: 20px;
             margin: 20px 0;
             position: relative;
+            min-height: 120px;
 
             .image-container {
                 width: 15%;
@@ -33,7 +34,7 @@ export default class FollowerCard extends React.Component {
                                     <img src={follower.avatar_url} alt={follower.login} />
                                 </div>
                                 {
-                                    Object.keys(follower).map(key => {
+                                    Object.keys(follower).filter(key => !key.includes('url')).map(key => {
                                         return <div><span className='key'>{key}: </span>
                                         <span className='value'>{follower[key]}</span></div>
                                     })
