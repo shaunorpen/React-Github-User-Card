@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 export default class FollowerCard extends React.Component {
@@ -31,7 +30,7 @@ export default class FollowerCard extends React.Component {
                         return (
                             <FollowerCard>
                                 <div className='image-container'>
-                                    <img src={follower.avatar_url} />
+                                    <img src={follower.avatar_url} alt={follower.login} />
                                 </div>
                                 {
                                     Object.keys(follower).map(key => {
