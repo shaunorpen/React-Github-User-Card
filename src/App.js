@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import UserCard from './components/UserCard';
 import FollowerCard from './components/FollowerCard';
+
+import './css/reset.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,12 +14,6 @@ export default class App extends React.Component {
       userData: {},
       followerList: [],
     };
-  }
-
-  setFollowerList = followerList => {
-    this.setState({
-      followerList: followerList,
-    })
   }
 
   componentDidMount() {
@@ -32,11 +29,18 @@ export default class App extends React.Component {
   }
 
   render() {
+    const App = styled.div`
+      max-width: 800px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px grey;
+      padding: 20px;
+    `;
+
     return (
-      <div className="App">
+      <App>
         <UserCard userData={this.state.userData} />
         <FollowerCard followerList={this.state.followerList} />
-      </div>
+      </App>
     );
   }
 }
