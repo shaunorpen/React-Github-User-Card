@@ -29,6 +29,26 @@ export default class App extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.user !== prevState.user) {
+      const userData = axios.get(`https://api.github.com/users/${this.state.user}`);
+      const followerList = axios.get(`https://api.github.com/users/${this.state.user}/followers`);
+      Promise.all([userData, followerList])
+        .then(res => {
+          this.setState({
+            userData: res[0].data,
+            followerList: res[1].data,
+          })
+        });
+    }
+  }
+
+  setUser = username => {
+    this.setState({
+      user: username
+    })
+  }
+
   render() {
     const App = styled.div`
       max-width: 800px;
@@ -57,7 +77,7 @@ export default class App extends React.Component {
     return (
       <App>
         <UserCard userData={this.state.userData} />
-        <FollowerCard followerList={this.state.followerList} />
+        <FollowerCard followerList={this.state.followerList} setUser={this.setUser} />
       </App>
     );
   }

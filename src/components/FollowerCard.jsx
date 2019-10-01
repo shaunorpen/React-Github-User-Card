@@ -10,6 +10,10 @@ export default class FollowerCard extends React.Component {
             position: relative;
             min-height: 120px;
 
+            button {
+                margin-left: 10px;
+            }
+
             .image-container {
                 width: 15%;
                 position: absolute;
@@ -35,8 +39,15 @@ export default class FollowerCard extends React.Component {
                                 </div>
                                 {
                                     Object.keys(follower).filter(key => !key.includes('url')).map(key => {
-                                        return <div><span className='key'>{key}: </span>
-                                        <span className='value'>{follower[key]}</span></div>
+                                        return (
+                                            <div>
+                                                <span className='key'>{key}: </span>
+                                                <span className='value'>
+                                                    {follower[key]}
+                                                    {key === 'login' ? <button onClick={e => this.props.setUser(follower[key])}>View Details</button> : null}
+                                                </span>
+                                            </div>
+                                        );
                                     })
                                 }
                             </FollowerCard>
