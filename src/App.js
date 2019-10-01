@@ -34,6 +34,23 @@ export default class App extends React.Component {
       margin: 20px auto;
       box-shadow: 0 0 10px grey;
       padding: 20px;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .key {
+        display: inline-block;
+        width: 20%;
+        text-align: right;
+        color: grey;
+    }
+
+    .value {
+        display: inline-block;
+        width: 70%;
+        padding-left: 20px;
+    }
     `;
 
     return (
