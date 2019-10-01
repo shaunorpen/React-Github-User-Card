@@ -8,12 +8,27 @@ export default class UserCard extends React.Component {
             box-shadow: inset 0 0 10px grey;
             padding: 20px;
             margin: 20px 0;
+            position: relative;
+
+            .image-container {
+                width: 15%;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+
+                img {
+                    width: 100%;
+                }
+            }
         `;
 
         return (
             <>
             <h2>User Details ({this.props.userData.name})</h2>
             <UserCard>
+                <div className='image-container'>
+                    <img src={this.props.userData.avatar_url} />
+                </div>
                 {
                     Object.keys(this.props.userData).map(key => {
                         return (
