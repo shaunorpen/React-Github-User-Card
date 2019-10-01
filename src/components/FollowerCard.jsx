@@ -5,7 +5,7 @@ export default class FollowerCard extends React.Component {
     render() {
         return (
             <div>
-                <h2>Followers</h2>
+                <h2>Follower Details</h2>
                 {
                     this.props.followerList.map(follower => {
                         return (
